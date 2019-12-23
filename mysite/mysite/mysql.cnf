@@ -1,0 +1,9 @@
+# mysql.cnf
+
+
+
+[client]
+database = exam_django
+host = localhost
+user = neo1seok
+password = #neo1seok1234

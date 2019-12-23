@@ -77,6 +77,18 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'exam_django', # DB명
+        'USER': 'neo1seok', # 데이터베이스 계정
+        'PASSWORD': '#neo1seok1234', # 계정 비밀번호
+        'HOST': 'localhost', # 데이테베이스 주소(IP)
+        'PORT': '3306', # 데이터베이스 포트(보통은 3306)
+    
+        'OPTIONS_': {
+            'read_default_file': "path/to/mysql.cnf",
+        }
+    },
+    'sql-lite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
