@@ -1,7 +1,8 @@
 from django.db import models
 
-class NeoModel(models.Model):
+class NeoModel2(models.Model):
 	uid = models.CharField(max_length=16, null=True,editable=False)
+	_prefix = "bse"
 
 	def save(self):
 		print(self._meta.object_name)
@@ -13,5 +14,8 @@ class NeoModel(models.Model):
 		print(self._meta.app_label)
 
 		models.Model.save(self)
-		self.uid = f"chn_{self.id}"
+		self.uid = f"{self._prefix}_{self.id}"
 		models.Model.save(self,update_fields=["uid"])
+
+	class Meta:
+		abstract = True

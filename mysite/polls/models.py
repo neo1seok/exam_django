@@ -4,6 +4,7 @@ from django.db import models
 
 
 # Create your models here.
+from mysite.comm.neo_models import NeoModel2
 from .comm.neo_models import NeoModel
 
 
@@ -22,7 +23,7 @@ class Question(models.Model):
 		return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
 
-class Choice(NeoModel):
+class Choice(NeoModel2):
 	#uid = models.CharField(max_length=16, null=True,editable=False)
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 	choice_text = models.CharField(max_length=200)
